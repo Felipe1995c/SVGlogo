@@ -35,7 +35,8 @@ THEN I am shown a 300x200 pixel image that matches the criteria I entered
 
 The following image shows a mock-up of the generated SVG given the following input entered by the user: `SVG` for the text, `white` for the text color, `circle` from the list of shapes, and `green` for the shape color. Note that this is just an image of the output SVG and not the SVG file itself:
 
-![Image showing a black square with white text that reads "LoL.".](./examples/logo.svg)
+![Image showing a black square with white text that reads "LoL.".](./examples/logo.svg).
+![Image of the svglogo passing the test](./lib/svglogo%20test%20passed.jpg).
 
 ## Setup
 
@@ -44,5 +45,9 @@ The following image shows a mock-up of the generated SVG given the following inp
 3. Follow prompts to enter text, choose text, color, shape, and shape color.
 4. Finally, the logo.svg file will be created and you can open up a live server to visualize it.
 
+## Testing 
+For testing of the app I used "npm test" to initiate the test.
+The test basically checks that all three shapes render correctly.
+I also went line by line to make sure the paths were written down correctly because a lot of the issues I ran into were from misspelling, thus not having the correct path.
 
 

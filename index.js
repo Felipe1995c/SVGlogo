@@ -1,5 +1,6 @@
 import inquirer  from 'inquirer';
 import fs from 'fs';
+import path from 'path';
 import { Circle, Square, Triangle } from './lib/shapes.js';
 
 const questions = [
@@ -49,12 +50,19 @@ inquirer.prompt(questions).then(answers => {
   <text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${text}</text>
 </svg>
   `;
+  const outputDir = path.join(process.cwd(), 'examples');
+  const outputPath = path.join(outputDir, 'logo.svg');
 
-  fs.writeFile('logo.svg', svgContent, err => {
+  // Ensure the examples directory exists
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir);
+  }
+
+  fs.writeFile(outputPath, svgContent, err => {
     if (err) {
       console.error('Error saving the logo:', err);
     } else {
-      console.log('Generated logo.svg');
+      console.log('Generated logo.svg in examples folder');
     }
   });
 });
